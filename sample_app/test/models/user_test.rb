@@ -55,4 +55,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
+  test "password should have a min length" do 
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
+
 end
