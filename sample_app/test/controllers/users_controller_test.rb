@@ -4,7 +4,7 @@ class UsersControllerTest < ActionController::TestCase
 
   def setup
     @user = users(:michael)
-    @other_user = users(:matt)
+    @other_user = users(:archer)
   end
 
   test "should get new" do
