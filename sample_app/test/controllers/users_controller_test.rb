@@ -57,4 +57,11 @@ class UsersControllerTest < ActionController::TestCase
     end
     assert_redirected_to root_url
   end
+
+  test "should not be able to edit admin status with patch request" do
+    log_in_as(@other_user)
+    assert_not @other_user.admin?
+    patch :update, id: @other_user, user: { admin: true }
+    assert_not @other_user.reload.admin?
+  end
 end
